@@ -10,6 +10,7 @@ int hp;
 int energie;
 int utok;
 string role;
+int zlato = 100;
 
 cout << "\nVitejte! Vyberte si typ Vasi postavy:" << endl;
 
@@ -136,6 +137,57 @@ cout << "\nRole: " << role << endl;
 cout << "\nZivoty: " << hp << endl;
 cout << "Energie: " << energie << endl;
 cout << "Utok: " << utok << endl;
+
+cout << "\n-----VESNICE----- " << endl;
+
+
+cout << "\nHP: " << hp << endl;
+cout << "Energie: " << energie << endl;
+cout << "Utok: " << utok << endl;
+cout << "Zlato: " << zlato << endl;
+
+cout << "\nNachazite se ve vesnici." << endl;
+
+cout << "\n1 - heal (+30 HP za 20 zlata)" << endl;
+cout << "2 - utok +5 (30 zlata)" << endl;
+cout << "3 - odejit" << endl;
+
+int v;
+cin >> v;
+
+if (v == 1)
+{
+if (zlato >= 20)
+{
+zlato -= 20;
+hp += 30;
+cout << "HP doplneno" << endl;}
+else
+{
+cout << "Nemas dost zlata" << endl;
+}
+}
+else if (v == 2)
+{
+if (zlato >= 30)
+{
+zlato -= 30;
+utok += 5;
+
+cout << "Utok zvysen" << endl;
+}
+else
+{
+cout << "Nemas dost zlata" << endl;
+}
+}
+else
+{
+cout << "Odesel jsi" << endl;
+}
+
+
+cout << "KONEC VESNICE" << endl;
 
 return 0;
 
