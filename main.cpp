@@ -148,11 +148,12 @@ cout << "Zlato: " << zlato << endl;
 
 cout << "\nNachazite se ve vesnici." << endl;
 
-cout << "\n1 - heal (+30 HP za 20 zlata)" << endl;
+cout << "\n1 - leceni (+30 HP za 20 zlata)" << endl;
 cout << "2 - utok +5 (30 zlata)" << endl;
 cout << "3 - odejit" << endl;
 
 int v;
+cout << "Vase volba: ";
 cin >> v;
 
 if (v == 1)
@@ -183,12 +184,94 @@ cout << "Nemas dost zlata" << endl;
 }
 else
 {
-cout << "Odesel jsi" << endl;
+cout << endl << "Odesel jsi" << endl;
 }
 
 
 cout << "KONEC VESNICE" << endl;
 
+cout << "\n----- MONSTRUM -----" << endl;
+
+string monstrum = "Kostra";
+int monsterHP = 50;
+int monsterDMG = 10;
+
+cout << "\nNarazil jsi na monstrum: " << monstrum << endl;
+
+cout << "HP monstra: " << monsterHP << endl;
+cout << "Damage monstra: " << monsterDMG << endl;
+
+cout << "\n----- TVE STATISTIKY -----" << endl;
+
+cout << endl << "Role: " << role << endl;
+cout << "HP: " << hp << endl;
+cout << "Energie: " << energie << endl;
+cout << "Utok: " << utok << endl;
+
+cout << "\n----- BOJ ZACINA -----" << endl;
+
+while (monsterHP > 0 && hp > 0)
+{
+cout << "\nTvoje HP: " << hp << endl;
+cout << "Energie: " << energie << endl;
+cout << endl << "HP monstra: " << monsterHP << endl;
+
+
+if (role == "VALECNIK")
+{
+cout << endl << "1 - Sek mecem" << endl;
+cout << "2 - Tornado (50 energie)" << endl;
+cout << "3 - Slam (75 energie)" << endl;
+}
+else if (role == "LOVEC")
+{
+cout << endl << "1 - Strela lukem" << endl;
+cout << "2 - Ohnivy sip (50 energie)" << endl;
+cout << "3 - Sip osudu (100 energie)" << endl;
+}
+else if (role == "MAG")
+{
+cout << endl << "1 - Kouzlo hole" << endl;
+cout << "2 - Zmrazeni (50 energie)" << endl;
+cout << "3 - Blesk (125 energie)" << endl;
+}
+else if (role == "TANK")
+{
+cout << endl << "1 - Pest" << endl;
+cout << "2 - Stit (25 energie)" << endl;
+cout << "3 - Skok (50 energie)" << endl;
+}
+
+int akce;
+cout << "Vase volba: ";
+cin >> akce;
+
+if (akce == 1)
+{
+monsterHP -= utok;
+cout << endl << "Zasahl jsi monstrum za " << utok << " dmg." << endl;
+}
+
+if (monsterHP > 0)
+{
+hp -= monsterDMG;
+cout << endl << "Monstrum te zasahlo za " << monsterDMG << " dmg." << endl;
+}
+}
+while (monsterHP > 0 && hp > 0)
+{
+
+}
+
+if (hp > 0)
+{
+cout << "\nMONSTRUM PORAZENO!" << endl;
+zlato += 20;
+}
+else
+{
+cout << "\nPROHRAL JSI..." << endl;
+}
 return 0;
 
 }
